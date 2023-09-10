@@ -1,7 +1,16 @@
+<!--User info-->
+
+<!--New book-->
+
+<%= render 'book', book: @book, user: @user %>
+
 <h2>Book detail</h2>
 
 <% @books.each do |book| %>
-	<div></div>
+	<div><%= image_tag book.user.get_profile_image(100,100) %></div>
 	<div><%= book.title %></div>
 	<div><%= book.body %></div>
+	<% if @book.user == current_user %>
+		<%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %>
+	<% end %>
 <% end %>
