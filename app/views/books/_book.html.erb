@@ -11,19 +11,25 @@
 
 <%= image_tag user.get_profile_image(100,100) %>
 
-<div class="container mb-4">
-	<div class="row row-cols-2">
-		<div class="column border-top border-bottom border-light">name</div>
-		<div class="column border-top border-bottom border-light"><%= user.name %></div>
-		<div class="column">introduction</div>
-		<div class="column"><%= user.introduction %></div>
+<div class="container mb-4 pr-5">
+	<div class="row border-top border-light">
+		<div class="col-6">name</div>
+		<div class="col-6"><%= user.name %></div>
+	</div>
+	<div class="row border-top border-light">
+		<div class="col-6">introduction</div>
+		<div class="col-6"><%= user.introduction %></div>
 	</div>
 </div>
 
 <% if user == current_user %>
-	<p type="button" class="btn btn-outline-secondary"><%= link_to "<i class='fa-solid fa-user-gear'></i>", edit_user_path(user) %></p>
+	<%= link_to edit_user_path(user), class: 'text-secondary' do %>
+		<div type="button" class="btn btn-outline-secondary w-75 text-decoration-none">
+			<i class='fa-solid fa-user-gear'></i>
+		</div>
+	<% end %>
 <% end %>
-
+<p></p>
 <h2>New book</h2>
 
 <%= form_with model: book do |f| %>

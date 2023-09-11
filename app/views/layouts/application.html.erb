@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>Bookers2</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -13,41 +12,79 @@
   </head>
 
   <body class="d-flex flex-column vh-100">
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <header class="bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <a class="navbar-brand text-white p-3" href="/">Bookers</a>
+          <a class="navbar-brand text-light p-3" href="/">Bookers</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto list-unstyled">
               <% if user_signed_in? %>
                 <li>
-                  <span class="text-white"><i class="fa-solid fa-house"></i> <%= link_to 'Home', user_path(current_user.id) %></span>
+                  <span class="text-light mr-2">
+                    <%= link_to user_path(current_user.id), class: 'text-light' do %>
+                      <i class="fa-solid fa-house"></i> Home
+                    <% end %>
+                  </span>
                 </li>
+
                 <li>
-                  <span class="text-white"><i class="fa-solid fa-users"></i> <%= link_to 'Users', users_path %></span>
+                  <span class="text-light mr-2">
+                    <%= link_to users_path, class: 'text-light' do %>
+                      <i class="fa-solid fa-users"></i> Users
+                    <% end %>
+                  </span>
                 </li>
+
                 <li>
-                  <span class="text-white"><i class="fa-solid fa-book-open"></i> <%= link_to 'Books', books_path %></span>
+                  <span class="text-light mr-2">
+                    <%= link_to books_path, class: 'text-light' do %>
+                      <i class="fa-solid fa-book-open"></i> Books
+                    <% end %>
+                  </span>
                 </li>
+
                 <li>
-                  <span class="text-white"><i class="fa-solid fa-right-from-bracket"></i> <%= link_to "Log out", destroy_user_session_path, method: :delete %></span>
+                  <span class="text-light mr-2">
+                    <%= link_to destroy_user_session_path, method: :delete, class: 'text-light' do %>
+                      <i class="fa-solid fa-right-from-bracket"></i> Log out
+                    <% end %>
+                  </span>
                 </li>
               <% else %>
                 <li>
-                  <span class="text-white"><i class="fa-solid fa-house"></i> <%= link_to "Home", '/' %></span>
+                  <span class="text-light mr-2">
+                    <%= link_to '/', class: 'text-light' do %>
+                      <i class="fa-solid fa-house"></i> Home
+                    <% end %>
+                  </span>
                 </li>
+
                 <li>
-                  <span class="text-white"><i class="fa-solid fa-link"></i> <%= link_to "About", '/homes/about' %></span>
+                  <span class="text-light mr-2">
+                    <%= link_to '/home/about', class: 'text-light' do %>
+                      <i class="fa-solid fa-link"></i> About
+                    <% end %>
+                  </span>
                 </li>
+
                 <li>
-                  <span class="text-white"><i class="fa-solid fa-user-plus"></i> <%= link_to "Sign up", new_user_registration_path %></span>
+                  <span class="text-light mr-2">
+                    <%= link_to new_user_registration_path, class: 'text-light' do %>
+                      <i class="fa-solid fa-user-plus"></i> Sign up
+                    <% end %>
+                  </span>
                 </li>
+
                 <li>
-                  <span class="text-white"><i class="fa-solid fa-right-to-bracket"></i> <%= link_to "Log in", new_user_session_path %></span>
+                  <span class="text-light mr-2">
+                    <%= link_to new_user_session_path, class: 'text-light' do %>
+                      <i class="fa-solid fa-right-to-bracket"></i>Log in
+                    <% end %>
+                  </span>
                 </li>
               <% end %>
             </ul>
