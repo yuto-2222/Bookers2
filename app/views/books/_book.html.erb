@@ -8,15 +8,20 @@
 <% end %>
 
 <h2>User info</h2>
+
 <%= image_tag user.get_profile_image(100,100) %>
 
-<div>name</div>
-<div><%= user.name %></div>
-<div>introduction</div>
-<div><%= user.introduction %></div>
+<div class="container mb-4">
+	<div class="row row-cols-2">
+		<div class="column border-top border-bottom border-light">name</div>
+		<div class="column border-top border-bottom border-light"><%= user.name %></div>
+		<div class="column">introduction</div>
+		<div class="column"><%= user.introduction %></div>
+	</div>
+</div>
 
 <% if user == current_user %>
-	<p><%= link_to "プロフィール編集", edit_user_path(user) %></p>
+	<p type="button" class="btn btn-outline-secondary"><%= link_to "<i class='fa-solid fa-user-gear'></i>", edit_user_path(user) %></p>
 <% end %>
 
 <h2>New book</h2>

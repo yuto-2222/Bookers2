@@ -2,14 +2,32 @@
 
 <!--New book-->
 
-<%= render 'book', book: @newbook, user: @user %>
+<div class="container">
+	<div class="row mt-3">
 
-<h2>Book detail</h2>
+		<div class="col-4">
+			<%= render 'book', book: @newbook, user: @user %>
+		</div>
 
-	<div><%= image_tag @book.user.get_profile_image(100,100) %></div>
-	<div><%= @book.title %></div>
-	<div><%= @book.body %></div>
-	<% if @book.user == current_user %>
-		<%= link_to "Edit", edit_book_path(@book.id) %>
-		<%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" %>
-	<% end %>
+		<div class="col-8">
+			<h2>Book detail</h2>
+
+			<div class="container">
+				<div class="row">
+
+				<div class="col-3">
+					<%= image_tag @book.user.get_profile_image(100,100) %><br>
+					<%= link_to user_path(current_user.id) do %>
+						<%= @book.user.name %>
+					<% end %>
+				</div>
+				<div class="col-3"><%= @book.title %></div>
+				<div class="col-3"><%= @book.body %></div>
+				<% if @book.user == current_user %>
+					<div class="col-1.5"><%= link_to "Edit", edit_book_path(@book.id) %></div>
+					<div class="col-1.5"><%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" %></div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
