@@ -5,33 +5,33 @@
 <div class="container">
 	<div class="row mt-3">
 
-		<div class="col-4">
+		<div class="col-md-4">
 			<%= render 'book', book: @book, user: @user %>
 		</div>
 
-		<div class="col-8">
+		<div class="col-md-8">
 			<h2>Books</h2>
 
 			<div class="container">
 				<div class="row py-2 border-top border-light">
-					<div class="col-2"></div>
-					<div class="col-4 text-left">Title</div>
-					<div class="col-6 text-left">Opinion</div>
+					<div class="col-md-2"></div>
+					<div class="col-md-4 text-left">Title</div>
+					<div class="col-md-6 text-left">Opinion</div>
 				</div>
 
 				<% @books.each do |book| %>
 					<div class="row py-2 border-top border-light">
-						<div class="col-2">
+						<div class="col-md-2">
 							<%= link_to user_path(book.user.id) do %>
 								<%= image_tag book.user.get_profile_image(100,100) %>
 							<% end %>
 						</div>
-						<div class="col-4 text-start">
+						<div class="col-md-4 text-start">
 							<%= link_to book_path(book.id) do %>
 								<%= book.title %>
 							<% end %>
 						</div>
-						<div class="col-6 text-left"><%= book.body %></div></td>
+						<div class="col-md-6 text-left"><%= book.body %></div></td>
 					</div>
 				<% end %>
 			</div>

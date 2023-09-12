@@ -5,25 +5,25 @@
 <div class="container">
 	<div class="row mt-3">
 
-		<div class="col-4">
+		<div class="col-md-4">
 			<%= render 'books/book', book: @book, user: @user %>
 		</div>
 
-		<div class="col-8">
+		<div class="col-md-8">
 			<h2>Users</h2>
 
 			<div class="container">
 				<div class="row py-2 border-top border-light">
-					<div class="col-4 text-left">image</div>
-					<div class="col-5 text-left">name</div>
-					<div class="col-3"></div>
+					<div class="col-md-4 text-left">image</div>
+					<div class="col-md-5 text-left">name</div>
+					<div class="col-md-3"></div>
 				</div>
 
 				<% @users.each do |user| %>
 					<div class="row py-2 border-top border-light">
-						<div class="col-4 text-left"><%= image_tag user.get_profile_image(100,100) %></div>
-						<div class="col-5 text-left"><%= user.name %></div>
-						<div class="col-3 text-left"><%= link_to "Show", user_path(user.id) %></div>
+						<div class="col-md-4 text-left"><%= image_tag user.get_profile_image(100,100) %></div>
+						<div class="col-md-5 text-left"><%= user.name %></div>
+						<div class="col-md-3 text-left"><%= link_to "Show", user_path(user.id) %></div>
 					</div>
 				<% end %>
 			</div>

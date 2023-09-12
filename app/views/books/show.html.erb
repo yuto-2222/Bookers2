@@ -5,31 +5,31 @@
 <div class="container">
 	<div class="row mt-3">
 
-		<div class="col-4">
+		<div class="col-md-4">
 			<%= render 'book', book: @newbook, user: @user %>
 		</div>
 
-		<div class="col-8">
+		<div class="col-md-8">
 			<h2>Book detail</h2>
 
 			<div class="container">
 				<div class="row pt-3 border-top border-light">
 
-				<div class="col-3">
+				<div class="col-md-3">
 					<%= image_tag @book.user.get_profile_image(100,100) %><br>
 					<%= link_to user_path(@user.id) do %>
 						<%= @book.user.name %>
 					<% end %>
 				</div>
-				<div class="col-3"><%= @book.title %></div>
-				<div class="col-3"><%= @book.body %></div>
+				<div class="col-md-3"><%= @book.title %></div>
+				<div class="col-md-3"><%= @book.body %></div>
 				<% if @book.user == current_user %>
-					<div class="col-1">
+					<div class="col-md-1">
 						<%= link_to edit_book_path(@book.id) do %>
 							<span type="button" class="btn btn-success">Edit</span>
 						<% end %>
 					</div>
-					<div class="col-1">
+					<div class="col-md-1">
 						<%= link_to book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" do %>
 							<span type="button" class="btn btn-danger">Destroy</span>
 						<% end %>
