@@ -22,13 +22,12 @@
 	</div>
 </div>
 
-<% if user == current_user %>
-	<%= link_to edit_user_path(user), class: 'text-secondary' do %>
-		<div type="button" class="btn btn-outline-secondary w-75 text-decoration-none">
-			<i class='fa-solid fa-user-gear'></i>
-		</div>
-	<% end %>
+<%= link_to edit_user_path(user), class: 'text-secondary' do %>
+	<div type="button" class="btn btn-outline-secondary w-75 text-decoration-none">
+		<i class='fas fa-user-cog'></i>
+	</div>
 <% end %>
+
 <p></p>
 <h2>New book</h2>
 
